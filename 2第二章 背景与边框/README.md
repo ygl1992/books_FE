@@ -17,6 +17,38 @@
 ----------
 
 ### 2.多重边框
+#### box-shadow方案
+
+	background: yellowgrenn;
+	box-shadow: 0 0 0 10px #655,
+				0 0 0 15px deeplink;
+
+	background: yellowgrenn;
+	box-shadow: 0 0 0 10px #655,
+				0 0 0 15px deeplink,
+				0 2px 5px 15px rgba(0,0,0,0.6);
+
+注意：
+
+1.投影的行为跟边框不完全一致，因为它不会影响布局，而且也不会受到box-sizing属性的影响。不过你还是可以通过内边距或外边距来额外模拟出边框所需要占据的空间。
+
+2.他们不会响应鼠标事件，比如悬停或点击。如果这一点很重要，你可以给box-shadow属性加上inset关键字。
+
+#### outline方案（描边）
+	
+	background: yellowgreen;
+	border: 10px solid #655;
+	outline: 5px solid deeplink;
+
+另一个好处在于，你可以通过outline-offset属性来控制它跟元素边缘之间的距离，这个属性甚至可以接受负值，可以实现简单的缝边效果。
+
+注意：
+
+1.它只适用于双层“边框”的场景。
+2.如果元素是圆角，他的描边可能还是直角。
+3.描边可以不是矩形，请切记：最好在不同浏览器中完整地测试最终效果。
+
+
 
 ----------
 
