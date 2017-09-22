@@ -73,9 +73,56 @@ css3中的background-position属性得到扩展，它允许我们指定背景图
 
 ### 4.边框内圆角
 
+<img src="imgs/001.png">
+
+用两个元素可以实现这个效果，但如果我们只需要一个元素，有没有办法可以只用一个元素达成同样的效果呢。
+
+#### 解决方案
+	<div class="box">I have a nice subtle inner rounding,don't I look pretty?</div>
+	
+	<style>
+		width: 200px;
+		margin: 20px;
+		background: tan;
+		border-radius: .8em;
+		padding: 1em;
+		box-shadow: 0 0 0 .4em #c00;
+		outline: .6em solid #655;
+	</style>
+
+注意：阴影的扩张半径需要比描边的宽度值小，但它同时又要比(√2-1)r大(这里的r表示border-radius)。这意味着，如果描边的宽度比(√2-1)r小，那我们是不可能用这个方法达成该效果的。
+（√2代表根号2，打不出来）
+
 ----------
 
 ### 5.条纹背景
+#### 水平条纹
+
+<img src="imgs/002.png" />
+	
+	width: 200px;
+	height: 200px;
+	background: linear-gradient(#f00 50%, yellow 0);
+	background-size: 100% 30px;
+
+<p></p>
+<img src="imgs/003.png" />
+
+	width: 200px;
+	height: 200px;
+	background: linear-gradient(#f00 33.3%, yellow 0, yellow 66.6%, yellowgreen 0);
+	background-size: 100% 30px;
+
+#### 垂直条纹
+
+<img src="imgs/004.png" />
+
+	width: 200px;
+	height: 200px;
+	background: linear-gradient(90deg, #f00 33.3%, yellow 0, yellow 66.6%, yellowgreen 0);
+	background-size: 30px 100%;
+
+#### 斜向条纹
 
 ----------
 
