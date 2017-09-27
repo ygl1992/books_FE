@@ -124,9 +124,61 @@ css3中的background-position属性得到扩展，它允许我们指定背景图
 
 #### 斜向条纹
 
+<img src="imgs/005.png">
+	
+	width: 180px;
+	height: 180px;
+	background: linear-gradient(45deg, #f00 25%, yellowgreen 0, yellowgreen 50%, #f00 0,#f00 75%, yellowgreen 0);
+	background-size: 30px 30px;
+
+<img src="imgs/006.png">
+
+但是这些条纹看起来要比我们前面制作的水平和垂直条纹细一些。（假设条纹的宽度是15px），改进如下：
+
+<img src="imgs/007.png">
+
+	width: 180px;
+	height: 180px;
+	background: linear-gradient(45deg, #f00 25%, yellowgreen 0, yellowgreen 50%, #f00 0,#f00 75%, yellowgreen 0);
+	background-size: 42px 42px;
+
+#### 更好的斜向条纹
+利用 repeating-linear-gradient
+
+	width: 180px;
+	height: 180px;
+	background: repeating-linear-gradient( 45deg, #79b 0, #79b 15px, #58a 0, #58a 30px);
+
+#### 灵活的同色系条纹
+	
+	width: 180px;
+	height: 180px;
+	background: #58a;
+	background-image: repeating-linear-gradient( 45deg, hsla(0,0%,100%,.1), hsla(0,0%,100%,.1) 15px, transparent 0, transparent 30px);
+
 ----------
 
 ### 6.复杂的背景图案
+#### 网格
+
+<img src="imgs/008.png"/>
+
+	width: 195px;
+	height: 195px;
+	background: white;
+	background-image: linear-gradient(90deg, rgba(200, 0, 0, 0.5) 50%, transparent 50%), linear-gradient(rgba(200, 0, 0, 0.5) 50%, transparent 50%);
+	background-size: 30px 30px;
+
+<br />
+<img src="imgs/009.png"/>
+	width: 195px;
+	height: 195px;
+	background: #58a;
+	background-image: linear-gradient(90deg, white 1px, transparent 0),
+					  linear-gradient(white 1px, transparent 0);
+	background-size: 30px 30px;
+
+#### 波点
 
 ----------
 
