@@ -179,6 +179,27 @@ css3中的background-position属性得到扩展，它允许我们指定背景图
 	background-size: 30px 30px;
 
 #### 波点
+<img src="imgs/010.png"/>
+	width: 200px;
+	height: 200px;
+	background: #655;
+	background-image: radial-gradient(tan 30%, transparent 0),
+					  radial-gradient(tan 30%, transparent 0);	
+	background-size: 30px 30px;
+	background-position: 0 0, 15px 15px;
+
+#### 棋盘
+<img src="imgs/011.png"/>
+	width: 200px;
+	height: 200px;
+	background: #eee;
+	background-image: linear-gradient(45deg, #bbb 25%, transparent 0),
+					  linear-gradient(45deg, transparent 75%, #bbb 0),
+					  linear-gradient(45deg, #bbb 25%, transparent 0),
+					  linear-gradient(45deg, transparent 75%, #bbb 0);	
+	background-size: 30px 30px;
+	background-position: 0 0, 15px 15px,
+						 15px 15px, 0px 0px;
 
 ----------
 
