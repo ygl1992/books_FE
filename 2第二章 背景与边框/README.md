@@ -204,9 +204,18 @@ css3中的background-position属性得到扩展，它允许我们指定背景图
 ----------
 
 ### 7.伪随机背景
+<img src="imgs/012.png"/>
+	width: 100%;
+	height: 200px;
+	background: hsl(20, 40%, 90%);
+	background-image: linear-gradient(90deg, #fb3 11px, transparent 0),
+					  linear-gradient(90deg, #ab4 23px, transparent 0),
+					  linear-gradient(90deg, #655 41px, transparent 0);	
+	background-size: 41px 100%, 61px 100%, 83px 100%;
 
 ----------
 
 ### 8.连续的图像边框
+
 
 ----------
