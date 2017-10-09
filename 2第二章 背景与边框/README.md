@@ -216,6 +216,37 @@ css3中的background-position属性得到扩展，它允许我们指定背景图
 ----------
 
 ### 8.连续的图像边框
+<img src="imgs/013.png"/>
+	width: 200px;
+	padding: 1em;
+	border: 1em solid transparent;
+	background: linear-gradient(white, white),
+				url(images/app_ios.png);
+	background-size: cover;
+	background-clip: padding-box, border-box;
+	background-origin: border-box;
 
+<br />
+<img src="imgs/014.png"/>
+	width: 200px;
+	border: 1em solid transparent;
+	padding: 1em;
+	background: linear-gradient(white, white) padding-box,
+				repeating-linear-gradient(-45deg, red 0, red 12.5%, transparent 0, transparent 25%, #58a 0, #58a 37.5%, transparent 0, transparent 50%) 0/5em 5em;
 
+<br />
+<img src="imgs/015.png"/>
+	@keyframes ants {
+		to{
+			background-position: 100%
+		}
+	}
+	
+	.box{
+		width: 200px;
+		padding: 1em;
+		border: 1px solid transparent;
+		background: linear-gradient(white, white) padding-box, repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0/0.6em 0.6em;
+		animation: ants 12s linear infinite;
+	}
 ----------
