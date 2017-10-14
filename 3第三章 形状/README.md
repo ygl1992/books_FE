@@ -49,10 +49,58 @@
 ----------
 
 ### 3.菱形图片
+<img src="imgs/006.png">
+
+#### 基于变形的方案（用于正方形图片）
+	<div class="picture">
+		<img src="adam-catlace.jpg" alt="..." />
+	</div>
+
+	.picture {
+		width: 400px;
+		transform: rotate(45deg);
+		overflow: hidden;
+	}
+	.picture > img {
+		width: 100%;
+		transform: rotate(-45deg) scale(1.42);
+	}
+
+#### 裁切路径方案
+	img{
+		clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+	}
 
 ----------
 
 ### 4.切角效果
+####  CSS 渐变
+<img src="imgs/007.png">
+	
+	background: #58a;
+	background: linear-gradient(-45deg, transparent 15px, #58a 0);
+
+<img src="imgs/008.png">
+	
+	background: #58a;
+	background:	linear-gradient(-45deg, transparent 15px, #58a 0) right,
+				linear-gradient(45deg, transparent 15px, #655 0) left;
+	background-size: 50% 100%;
+	background-repeat: no-repeat;
+	
+<img src="imgs/009.png">
+	
+	background: #58a;
+	background:	linear-gradient(135deg, transparent 15px, #58a 0) top left,
+				linear-gradient(-135deg, transparent 15px, #58a 0) top right,
+				linear-gradient(-45deg, transparent 15px, #58a 0) bottom right,
+				linear-gradient(45deg, transparent 15px, #58a 0) bottom left;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
+
+#### 弧形切角
+
+
 
 ----------
 
