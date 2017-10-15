@@ -89,7 +89,9 @@
 	background-repeat: no-repeat;
 	
 <img src="imgs/009.png">
-	
+
+方法1：
+
 	background: #58a;
 	background:	linear-gradient(135deg, transparent 15px, #58a 0) top left,
 				linear-gradient(-135deg, transparent 15px, #58a 0) top right,
@@ -98,9 +100,27 @@
 	background-size: 50% 50%;
 	background-repeat: no-repeat;
 
+
+方法2：
+
+	border: 20px solid #58a;
+	border-image: 1 url('data:image/svg+xml,\
+		<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3" fill="%2358a">\
+			<polygon points="0,1 1,0 2,0 3,1 3,2 2,3 1,3 0,2"/>\
+		</svg>');
+	background: #58a;
+	background-clip: padding-box;
+
 #### 弧形切角
+<img src="imgs/010.png">
 
-
+	background: #58a;
+	background: radial-gradient(circle at top left, transparent 15px, #58a 0) top left,
+				radial-gradient(circle at top right, transparent 15px, #58a 0) top right,
+				radial-gradient(circle at bottom right, transparent 15px, #58a 0) bottom right,
+				radial-gradient(circle at bottom left, transparent 15px, #58a 0) bottom left;
+	background-size: 50% 50%;
+	background-repeat: no-repeat;
 
 ----------
 
