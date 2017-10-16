@@ -125,8 +125,98 @@
 ----------
 
 ### 5.梯形标签页
+<img src="imgs/011.png">
+
+	.box{
+		position: relative;
+		display: inline-block;
+		padding: 0.5em 1em 0.35em;
+		color: #fff;
+	}
+	.box:before{
+		content: '';
+		position: absolute;
+		top: 0; right: 0; bottom: 0; left: 0;
+		z-index: -1;
+		background: #58a;
+		transform-origin: bottom;
+		transform: scaleY(1.3) perspective(0.5em) rotateX(5deg);
+	}
 
 ----------
 
 ### 6.简单的拼图
+#### 基于 transform 的解决方案
+<img src="imgs/012.png">
 
+	<div class="box">20%</div>
+	<div class="box">60%</div>
+	
+	<script type="text/javascript">
+		var boxs = document.querySelectorAll('.box');
+		console.log(boxs);
+
+		boxs.forEach(function(ele, index){
+			var p = parseFloat( ele.textContent );
+			ele.style.animationDelay = '-'+p+'s';
+		});
+		
+	</script>
+	<style type="text/css">
+		@keyframes spin{
+			to{
+				transform: rotate(0.5turn);
+			}
+		}
+		@keyframes bg{
+			50%{
+				background: #655;
+			}
+		}
+		.box{
+			position: relative;
+			width: 150px;
+			height: 150px;
+			line-height: 150px;
+			text-align: center;
+			color: transparent;
+			border-radius: 50%;
+			background: yellowgreen;
+			background-image: linear-gradient(to right, transparent 50%, #655 0)
+		}
+		.box:before{
+			content: '';
+			position: absolute;
+			top: 0; left: 50%;
+			width: 50%;
+			height: 100%;
+			border-radius: 0 100% 100% 0/50%;
+			background-color: inherit;
+			transform-origin: left;
+			animation: spin 50s linear infinite, bg 100s step-end infinite;
+			animation-play-state: paused;
+			animation-delay: inherit;
+		}
+	</style>
+
+#### SVG 解决方案
+
+	<svg viewBox="0 0 32 32">
+		<circle r="16" cx="16" cy="16"></circle>
+	</svg>
+
+	<style type="text/css">
+		svg{
+			width: 100px;
+			height: 100px;
+			transform: rotate(-90deg);
+			background: yellowgreen;
+			border-radius: 50%;
+		}
+		circle{
+			fill: yellowgreen;
+			stroke: #655;
+			stroke-width: 32;
+			stroke-dasharray: 50 100;
+		}
+	</style>
