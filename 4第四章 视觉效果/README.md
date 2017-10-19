@@ -92,3 +92,33 @@
 ----------
 
 ### 5.折角效果
+#### 45°折角的解决方案
+	
+	width: 200px;
+	height: 200px;
+	background: #58a;
+	background: linear-gradient(to left bottom, transparent 50%, rgba(0,0,0,0.4) 0) no-repeat 100% 0/2em 2em,
+			    linear-gradient(-135deg, transparent 1.5em, #58a 0);
+
+#### 其他角度的解决方案（圆角，渐变，投影可以不要）
+	.box{
+		position: relative;
+		width: 200px;
+		height: 200px;
+		background: #58a;
+		background: linear-gradient(-150deg, transparent 1.5em, #58a 0);
+		border-radius: 0.5em;
+	}
+	.box:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 1.73em;
+		height: 3em;
+		background: linear-gradient(to left bottom, transparent 50%, rgba(0,0,0,0.2) 0, rgba(0,0,0,-.4)) no-repeat 100% 0;
+		transform: translateY(-1.3em) rotate(-30deg);
+		transform-origin: bottom right;
+		border-bottom-left-radius: inherit;
+		box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0,0,0,0.15);
+	}
