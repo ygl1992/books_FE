@@ -65,11 +65,19 @@ CSS3引入了一个新的属性 hyphens，它接受三个值none 、 manual 和 
 ----------
 
 ### 4.调整tab的宽度
+<img src="imgs/004.png" />
+	
+	pre {
+		tab-size: 2;
+	}
 
 ----------
 
 ### 5.连字
 
+	font-variant-ligatures: common-ligatures 
+							discretionary-ligatures 
+							historical-ligatures;
 
 ----------
 
