@@ -82,10 +82,34 @@ CSS3引入了一个新的属性 hyphens，它接受三个值none 、 manual 和 
 ----------
 
 ### 6.华丽的&符号
+> 这个用的比较少，利用@font-face引入签入字体，然后利用unicode-range声明我们想用这几款字体来显示哪些字符。
+> 如果想自定义样式，比如增大字体，改变透明度等等，我们只能修改HTML结构；如果想美化数字，符号，标点这个方法堪称完美。
+
+<img src="imgs/005.png" />
+	
+	@font-face {
+		font-family: Ampersand;
+		src: local('Baskerville-Italic'),
+		local('GoudyOldStyleT-Italic'),
+		local('Palatino-Italic'),
+		local('BookAntiqua-Italic');
+		unicode-range: U+26;
+	}
+	h1 {
+		font-family: Ampersand, Helvetica, sans-serif;
+	}
 
 ----------
 
 ### 7.自定义下划线
+> 这个只能是一行文字，多行文字除了第一行，其他行没有效果
+
+<img src="imgs/006.png" />
+
+	background: linear-gradient(gray, gray) no-repeat;
+	background-size: 100% 1px;
+	background-position: 0 1.15em;
+	text-shadow: .05em 0 white, -.05em 0 white;
 
 ----------
 
