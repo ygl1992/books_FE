@@ -114,13 +114,85 @@ CSS3引入了一个新的属性 hyphens，它接受三个值none 、 manual 和 
 ----------
 
 ### 8.现实中的文字效果
+#### 凸版印刷效果
+> 当文字比背景的颜色浅时，给文字的底部加投影
+> 当文字比背景的颜色深时，给文字的顶部加投影
 
+<br/>
+
+<img src="imgs/007.png" />
+	background: hsl(210, 13%, 60%);
+	color: hsl(210, 13%, 30%);
+	text-shadow: 0 1px 1px hsla(1, 0%, 100%, 0.8);
+
+<br />
+
+<img src="imgs/008.png" />
+
+	background: hsl(210, 13%, 30%);
+	color: hsl(210, 13%, 60%);
+	text-shadow: 0 -1px 1px black;
+
+#### 空心字效果
+
+<img src="imgs/009.png" />
+	
+	background: deeppink;
+	color: white;
+	text-shadow: 3px 3px black, -3px -3px black,
+				 3px -3px black, -3px 3px black; 
+
+#### 文字外发光效果
+
+<img src="imgs/010.png" />
+
+	background: #203;
+	color: #ffc;
+	text-shadow: 0 0 0.1em, 0 0 0.3em;
+
+#### 文字凸起效果
+
+<img src="imgs/011.png" />
+
+	background: #58a;
+	color: white;
+	text-shadow: 0 1px hsl(0, 0%, 85%),
+				 0 2px hsl(0, 0%, 80%),
+				 0 3px hsl(0, 0%, 75%),
+				 0 4px hsl(0, 0%, 70%),
+				 0 5px hsl(0, 0%, 65%),
+				 0 5px 10px black;
 
 ----------
 
 ### 9.环形文字
 
+<img src="imgs/012.png" />
 
+	<div class="circular">
+		<svg viewBox="0 0 100 100">
+			<path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle" />
+			<text>
+				<textPath xlink:href="#circle">
+					circluar resaoning works because
+				</textPath>
+			</text>
+		</svg>
+	</div>
+	
+	<style type="text/css">
+		.circular{
+			width: 200px;
+			margin: 20px;
+		}
+		.circular path{
+			fill: none;
+		}
+		.circular svg{
+			display: block;
+			overflow: visible;
+		}
+	</style>
 
 
 
