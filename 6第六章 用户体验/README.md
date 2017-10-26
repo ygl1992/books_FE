@@ -108,15 +108,53 @@
 ----------
 
 ### 4.通过阴影来弱化背景
+<img src="imgs/006.png" />
+
+#### 伪元素方案
+> 缺点：他可能出现在这个元素之后，但也可能出现在这个元素的父元素或祖先元素之后；伪元素无法绑定独立的javascript事件处理函数。
+
+	.target:before{
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 1;
+		background: rgba(0,0,0,.8);
+	}
+	
+#### box-shadow方案
+> 缺点：	1.由于遮罩层的尺寸与视口相关，当我们滚动页面时，遮罩层的边缘就露出来了，除非给它加上position:fixed;2.不能防止用户的鼠标与页面的其他部分发生交互。
+
+	box-shadow: 0 0 0 50vmax rgba(0,0,0,.8);
+
+#### backdrop方案
+> 缺点：浏览器对它的支持还极为有限
+
+	dialog::backdrop {
+		background: rgba(0, 0, 0, .8);
+	}
 
 ----------
 
 ### 5.通过模糊来弱化背景
+<img src="imgs/007.png" />
+
+	<main>Bacon Ipsum dolor sit amet...</main>
+	<dialog>O HAI, I'm a dialog. Click on me to dismiss.</dialog>
+
+	main.de-emphasized {
+		filter: blur(3px) contrast(.8) brightness(.8);
+	}
 
 ----------
 
 ### 6.滚动提示
 
+
+
+
 ----------
 
 ### 7.交互式的图片对比控件
+
