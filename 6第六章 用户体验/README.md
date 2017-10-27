@@ -150,11 +150,102 @@
 ----------
 
 ### 6.滚动提示
+<img src="imgs/008.png" />
 
-
-
+	background: linear-gradient(white 30%, transparent),
+				radial-gradient(at 50% 0, rgba(0,0,0,.2), transparent 70%);
+	background-repeat: no-repeat;
+	background-size: 100% 50px, 100% 15px;
+	background-attachment: local, scroll;
 
 ----------
 
 ### 7.交互式的图片对比控件
+#### CSS resize方案
+<img src="imgs/009.png" />
 
+	<div class="image-slider">
+		<div>
+			<img src="images/img1.png">
+		</div>
+		<img src="images/weixin_tips.png" alt="">
+	</div>
+	
+	.image-slider {
+		position:relative;
+		display: inline-block;
+	}
+	.image-slider > div {
+		position: absolute;
+		top: 0; bottom: 0; left: 0;
+		width: 50%;
+		max-width: 100%;
+		overflow: hidden;
+		resize: horizontal;
+	}
+	.image-slider > div::before {
+		content: '';
+		position: absolute;
+		bottom: 0; right: 0;
+		width: 12px; height: 12px;
+		padding: 5px;
+		background:
+		linear-gradient(-45deg, white 50%, transparent 0);
+		background-clip: content-box;
+		cursor: ew-resize;
+	}
+	.image-slider img {
+		display: block;
+		user-select: none;
+	}
+
+#### 范围输入控件方案
+<img src="imgs/010.png" />
+
+	<div class="image-slider">
+		<img src="images/img1.png">
+		<img src="images/weixin_tips.png">
+	</div>
+	
+	<script type="text/javascript">
+		document.querySelectorAll('.image-slider').forEach(function(slider) {
+			// 创建附加的div元素，并用它包住第一个图片元素
+			var div = document.createElement('div');
+			var img = slider.querySelector('img');
+			slider.insertBefore(div, img);
+			div.appendChild(img);
+
+			// 创建滑块
+			var range = document.createElement('input');
+			range.type = 'range';
+			range.oninput = function() {
+				div.style.width = this.value + '%';
+			};
+			slider.appendChild(range);
+		});
+	</script>	
+
+	<style type="text/css">
+		.image-slider{
+			position: relative;
+			display: inline-block;
+		}
+		.image-slider div{
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			overflow: hidden;
+		}
+		.image-slider img{
+			display: block;
+			user-select: none;	
+		}
+		.image-slider input{
+			position: absolute;
+			left: 0;
+			bottom: 10px;
+			width: 100%;
+			margin: 0;
+		}
+	</style>
