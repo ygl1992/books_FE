@@ -123,6 +123,15 @@
 ----------
 
 ### 6.紧贴底部的页脚
+<img src="imgs/007.png" />
+<img src="imgs/008.png" />
 
-
+	body{
+		display: flex;
+		flex-flow: column;
+		min-height: 100vh;
+	}
+	main{
+		flex: 1;
+	}
 
