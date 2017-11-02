@@ -19,7 +19,18 @@
 	}
 
 #### 3.闪烁效果
-
+	<div class="highlight">阿斯顿发是的 大师傅阿 </div>
+	
+	<style type="text/css">
+		@keyframes blink-smooth{
+			50%{
+				color: transparent;
+			}
+		}
+		.highlight{
+			animation: 1s blink-smooth infinite alternate;
+		}
+	</style>
 
 #### 4.打字效果
 <img src="imgs/001.png" style="border: 1px solid #ccc" />
@@ -80,3 +91,38 @@
 	</style>
 
 #### 6.沿环形路径平移的动画
+<img src="imgs/004.png" />
+
+	<div class="path">
+		<div class="avatar">
+			<img src="images/app_ios.png" alt="">	
+		</div>
+	</div>
+	
+	<style type="text/css">
+		@keyframes spin{
+			to{
+				transform: rotate(1turn);
+			}
+		}
+		.path{
+			width: 260px;
+			height: 260px;
+			padding: 10px;
+			border-radius: 50%;
+			background: yellowgreen;
+			text-align: center;
+		}
+		.avatar{
+			animation: spin 2s infinite linear;
+			transform-origin: 50% 130px;
+		}
+		.path img{
+			top: 20px;
+			width: 50px;
+			border-radius: 50%;
+	
+			animation: inherit;
+			animation-direction: reverse;
+		}
+	</style>
